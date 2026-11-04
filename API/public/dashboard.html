@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>Dashboard</h1>
+
+            <p
+                id="boasVindas"
+                class="subtitulo"
+            ></p>
+
+            <button
+                onclick="sair()"
+            >
+                Sair
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const usuario =
+            JSON.parse(
+                sessionStorage.getItem('usuario')
+            );
+
+
+        if (!usuario) {
+
+            window.location.href =
+                'index.html';
+
+        }
+
+
+        document.getElementById(
+            'boasVindas'
+        ).textContent =
+            `Olá, ${usuario.nome}! Você está logado.`;
+
+
+        function sair() {
+
+            sessionStorage.removeItem(
+                'usuario'
+            );
+
+            window.location.href =
+                'index.html';
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+</html>
