@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado de Autenticidade | AstroTracker</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>ASTROTRACKER</h1>
+        <div>
+            <span id="boasVindas"></span>
+            <button type="button" id="btnSair">Sair</button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="certificado">
+
+            <img src="img/logo-astrotracker.png" alt="AstroTracker" width="260">
+
+            <h2>Certificado de Autenticidade</h2>
+            <p id="numero"></p>
+
+            <p>
+                A WebDev, por meio da plataforma AstroTracker, certifica que o meteorito
+                descrito abaixo teve sua autenticidade avaliada de forma independente por
+                dois geólogos cadastrados no sistema, ambos com parecer favorável.
+            </p>
+
+            <div id="mensagem"></div>
+
+            <dl id="dados" hidden>
+                <dt>Meteorito</dt>
+                <dd id="rocha"></dd>
+
+                <dt>Local da descoberta</dt>
+                <dd id="local"></dd>
+
+                <dt>Peso</dt>
+                <dd id="peso"></dd>
+
+                <dt>Descoberto por</dt>
+                <dd id="cacador"></dd>
+
+                <dt>Data do registro</dt>
+                <dd id="dataRegistro"></dd>
+
+                <dt>Geólogos que aprovaram</dt>
+                <dd id="geologos"></dd>
+
+                <dt>Emitido em</dt>
+                <dd id="dataEmissao"></dd>
+            </dl>
+
+            <a id="btnPdf" class="botao" hidden>Baixar certificado (PDF)</a>
+            <button type="button" id="btnVoltar">Voltar</button>
+
+        </section>
+
+    </main>
+
+    <script src="certificado.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

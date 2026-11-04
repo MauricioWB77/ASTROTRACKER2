@@ -5,7 +5,7 @@
 const usuario = JSON.parse(sessionStorage.getItem('usuario'));
 
 if (!usuario || usuario.perfil !== 'cacador') {
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 }
 
 
@@ -18,7 +18,7 @@ document.getElementById('boasVindas').textContent = 'Olá, ' + usuario.nome;
 
 document.getElementById('btnSair').addEventListener('click', () => {
     sessionStorage.removeItem('usuario');
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 });
 
 
@@ -149,9 +149,8 @@ async function carregarDescobertas() {
 
                 const link = document.createElement('a');
                 link.className = 'botao';
-                link.textContent = 'Baixar certificado (PDF)';
-                link.href = '/api/certificados/' + d.certificado_id +
-                    '/pdf?usuario_id=' + usuario.id;
+                link.textContent = 'Ver certificado';
+                link.href = 'certificado.html?id=' + d.certificado_id;
 
                 info.append(link);
 

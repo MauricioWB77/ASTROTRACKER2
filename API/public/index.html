@@ -1,104 +1,103 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroTracker | Registro, certificação e leilão de meteoritos</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Login</title>
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <header>
+        <img src="img/logo-astrotracker.png" alt="AstroTracker" width="200">
 
-        <div class="card">
+        <nav>
+            <a href="/">Início</a>
+            <a href="login.html">Entrar</a>
+            <a href="cadastro.html">Cadastre-se</a>
+            <a href="sobre.html">Sobre nós</a>
+        </nav>
+    </header>
 
-            <h1>Bem-vindo</h1>
+    <main>
 
-            <p class="subtitulo">
-                Acesse sua conta
+        <section class="destaque">
+            <h1>Registre, certifique e leiloe meteoritos com confiança</h1>
+            <p>
+                O AstroTracker reúne em um só sistema o caminho completo de uma rocha
+                espacial: da descoberta no campo, passando pela análise independente
+                de dois geólogos, até o leilão e o certificado de autenticidade.
             </p>
+            <a class="botao" href="login.html">Entrar</a>
+            <a class="botao" href="cadastro.html">Cadastre-se</a>
+        </section>
 
+        <section>
+            <h2>Como funciona</h2>
+            <ol>
+                <li>
+                    <strong>Registro da descoberta:</strong>
+                    o caçador cadastra a rocha com nome, local, peso e foto.
+                </li>
+                <li>
+                    <strong>Análise independente:</strong>
+                    dois geólogos diferentes avaliam a peça separadamente,
+                    sem ver o voto um do outro.
+                </li>
+                <li>
+                    <strong>Leilão virtual:</strong>
+                    peças aprovadas pelos dois geólogos recebem lances de
+                    colecionadores, museus e universidades.
+                </li>
+                <li>
+                    <strong>Certificado de autenticidade:</strong>
+                    o comprador que arremata a peça pode baixar o certificado em PDF.
+                </li>
+            </ol>
+        </section>
 
-            <form id="formLogin">
+        <section>
+            <h2>Por que confiar</h2>
+            <p>
+                Uma peça só chega ao leilão se for aprovada por pelo menos dois geólogos
+                cadastrados, que votam de forma independente. Se os laudos divergirem,
+                a peça fica retida para análise física. Cada descoberta tem histórico,
+                laudos registrados e um certificado com o nome de quem a encontrou e dos
+                geólogos que a aprovaram.
+            </p>
+        </section>
 
-                <div class="campo">
+        <section>
+            <h2>Para quem é</h2>
 
-                    <label for="email">
-                        E-mail
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="seu@email.com"
-                        required
-                    >
-
+            <div class="cartao">
+                <div>
+                    <h3>Caçadores</h3>
+                    <p>Registram descobertas, acompanham a análise e encerram o leilão das suas peças.</p>
                 </div>
-
-
-                <div class="campo">
-
-                    <label for="senha">
-                        Senha
-                    </label>
-
-                    <input
-                        type="password"
-                        id="senha"
-                        placeholder="Digite sua senha"
-                        required
-                    >
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    id="btnLogin"
-                >
-                    Entrar
-                </button>
-
-
-                <div
-                    id="mensagem"
-                    class="mensagem"
-                ></div>
-
-            </form>
-
-
-            <div class="cadastro-link">
-
-                Ainda não possui cadastro?
-
-                <a href="cadastro.html">
-                    Criar conta
-                </a>
-
             </div>
 
-        </div>
+            <div class="cartao">
+                <div>
+                    <h3>Geólogos</h3>
+                    <p>Avaliam as descobertas pendentes e emitem laudos técnicos independentes.</p>
+                </div>
+            </div>
 
-    </div>
+            <div class="cartao">
+                <div>
+                    <h3>Compradores</h3>
+                    <p>Colecionadores, museus e universidades dão lances em peças com autenticidade comprovada.</p>
+                </div>
+            </div>
+        </section>
 
+    </main>
 
-    <script src="login.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 

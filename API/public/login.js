@@ -80,17 +80,27 @@ formLogin.addEventListener(
 
                 setTimeout(() => {
 
-      if (dados.usuario.perfil === 'cacador') {
-    window.location.href = 'descoberta.html';
-} else if (dados.usuario.perfil === 'geologo') {
-    window.location.href = 'laudo.html';
-} else if (dados.usuario.perfil === 'comprador') {
-    window.location.href = 'leilao.html';
-} else {
-    window.location.href = 'dashboard.html';
-}
+                    // Cada perfil vai para a sua página
+                    if (dados.usuario.perfil === 'cacador') {
 
-}, 1000);
+                        window.location.href = 'descoberta.html';
+
+                    } else if (dados.usuario.perfil === 'geologo') {
+
+                        window.location.href = 'laudo.html';
+
+                    } else if (dados.usuario.perfil === 'comprador') {
+
+                        window.location.href = 'leilao.html';
+
+                    } else {
+
+                        window.location.href = 'dashboard.html';
+
+                    }
+
+                }, 1000);
+
 
                 return;
             }

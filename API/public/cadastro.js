@@ -108,7 +108,7 @@ formCadastro.addEventListener(
                 setTimeout(() => {
 
                     window.location.href =
-                        'index.html';
+                        'login.html';
 
                 }, 1500);
 

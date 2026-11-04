@@ -5,7 +5,7 @@
 const usuario = JSON.parse(sessionStorage.getItem('usuario'));
 
 if (!usuario || usuario.perfil !== 'comprador') {
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 }
 
 
@@ -15,7 +15,7 @@ document.getElementById('boasVindas').textContent = 'Olá, ' + usuario.nome;
 
 document.getElementById('btnSair').addEventListener('click', () => {
     sessionStorage.removeItem('usuario');
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 });
 
 
@@ -106,9 +106,8 @@ function montarCartao(item) {
     // Certificado de autenticidade (o comprador confere antes de dar lance)
     if (item.certificado_id) {
 
-        const link = criar('a', 'botao', 'Ver certificado de autenticidade (PDF)');
-        link.href = '/api/certificados/' + item.certificado_id +
-            '/pdf?usuario_id=' + usuario.id;
+        const link = criar('a', 'botao', 'Ver certificado de autenticidade');
+        link.href = 'certificado.html?id=' + item.certificado_id;
 
         info.append(link);
 
@@ -278,9 +277,8 @@ async function carregarCompras() {
 
             if (c.certificado_id) {
 
-                const link = criar('a', 'botao', 'Baixar certificado de autenticidade (PDF)');
-                link.href = '/api/certificados/' + c.certificado_id +
-                    '/pdf?usuario_id=' + usuario.id;
+                const link = criar('a', 'botao', 'Ver e baixar certificado de autenticidade');
+                link.href = 'certificado.html?id=' + c.certificado_id;
 
                 info.append(link);
 

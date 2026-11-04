@@ -5,7 +5,7 @@
 const usuario = JSON.parse(sessionStorage.getItem('usuario'));
 
 if (!usuario || usuario.perfil !== 'geologo') {
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 }
 
 
@@ -16,7 +16,7 @@ document.getElementById('boasVindas').textContent = 'Olá, ' + usuario.nome;
 
 document.getElementById('btnSair').addEventListener('click', () => {
     sessionStorage.removeItem('usuario');
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 });
 
 
@@ -251,7 +251,7 @@ async function carregarMeusLaudos() {
             return;
         }
 
-                dados.laudos.forEach((l) => {
+        dados.laudos.forEach((l) => {
 
             const cartao = criar('div', 'cartao');
             const info = criar('div');
@@ -267,17 +267,15 @@ async function carregarMeusLaudos() {
                     NOMES_STATUS[l.status] || l.status)
             );
 
-            // ===== COLE AQUI o bloco do certificado =====
+            // Certificado: só existe para peças aprovadas
             if (l.certificado_id) {
 
-                const link = criar('a', 'botao', 'Baixar certificado (PDF)');
-                link.href = '/api/certificados/' + l.certificado_id +
-                    '/pdf?usuario_id=' + usuario.id;
+                const link = criar('a', 'botao', 'Ver certificado');
+                link.href = 'certificado.html?id=' + l.certificado_id;
 
                 info.append(link);
 
             }
-            // ============================================
 
             cartao.append(info);
             divMeusLaudos.append(cartao);

@@ -1510,6 +1510,131 @@ app.get('/api/leilao/minhas-compras', async (req, res) => {
 
 
 // =====================================================
+// CERTIFICADO DE AUTENTICIDADE - DADOS PARA A PÁGINA
+// Regra simples: qualquer usuário logado e ativo pode ver.
+// =====================================================
+
+app.get('/api/certificados/:id', async (req, res) => {
+
+    try {
+
+        const certificadoId = Number(req.params.id);
+        const usuarioId = Number(req.query.usuario_id);
+
+        if (!certificadoId) {
+
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: 'Certificado inválido.'
+            });
+
+        }
+
+        if (!usuarioId) {
+
+            return res.status(403).json({
+                sucesso: false,
+                mensagem: 'Faça login para ver o certificado.'
+            });
+
+        }
+
+        const [usuarios] = await db.query(
+            `
+            SELECT id, ativo
+            FROM usuarios
+            WHERE id = ?
+            LIMIT 1
+            `,
+            [usuarioId]
+        );
+
+        if (usuarios.length === 0 || !usuarios[0].ativo) {
+
+            return res.status(403).json({
+                sucesso: false,
+                mensagem: 'Faça login para ver o certificado.'
+            });
+
+        }
+
+        const [certificados] = await db.query(
+            `
+            SELECT
+                c.id,
+                c.data_emissao,
+                d.id AS descoberta_id,
+                d.nome_rocha,
+                d.local_descoberta,
+                d.peso_kg,
+                d.data_registro,
+                u.nome AS cacador
+            FROM certificados c
+            JOIN descobertas d ON d.id = c.descoberta_id
+            JOIN usuarios u ON u.id = d.cacador_id
+            WHERE c.id = ?
+            LIMIT 1
+            `,
+            [certificadoId]
+        );
+
+        if (certificados.length === 0) {
+
+            return res.status(404).json({
+                sucesso: false,
+                mensagem: 'Certificado não encontrado.'
+            });
+
+        }
+
+        const cert = certificados[0];
+
+        const [geologos] = await db.query(
+            `
+            SELECT u.nome
+            FROM laudos l
+            JOIN usuarios u ON u.id = l.geologo_id
+            WHERE l.descoberta_id = ?
+              AND l.voto = 'aprovado'
+            ORDER BY l.data_laudo, l.id
+            `,
+            [cert.descoberta_id]
+        );
+
+        return res.json({
+            sucesso: true,
+            certificado: {
+                id: cert.id,
+                numero: 'AT-' +
+                    new Date(cert.data_emissao).getFullYear() + '-' +
+                    String(cert.id).padStart(4, '0'),
+                nome_rocha: cert.nome_rocha,
+                local_descoberta: cert.local_descoberta,
+                peso_kg: Number(cert.peso_kg),
+                cacador: cert.cacador,
+                data_registro: cert.data_registro,
+                data_emissao: cert.data_emissao,
+                geologos: geologos.map((g) => g.nome)
+            }
+        });
+
+    }
+
+    catch (erro) {
+
+        console.error(erro);
+
+        return res.status(500).json({
+            sucesso: false,
+            mensagem: 'Erro ao buscar o certificado.'
+        });
+
+    }
+
+});
+
+
+// =====================================================
 // CERTIFICADO DE AUTENTICIDADE - DOWNLOAD EM PDF
 // Regra simples: qualquer usuário logado e ativo pode baixar.
 // =====================================================
