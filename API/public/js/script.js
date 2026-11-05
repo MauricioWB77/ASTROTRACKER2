@@ -3,7 +3,7 @@
 // =====================================================
 
 // >>> TROQUE pelos nomes reais da equipe <<<
-const EQUIPE = 'Mauricio Wendel, Kaua de Souza e Maria Eduarda';
+const EQUIPE = 'Nome 1, Nome 2 e Nome 3';
 
 
 // Rodapé: © + empresa + equipe + link para a página "Sobre nós".
