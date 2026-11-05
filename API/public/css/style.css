@@ -1,26 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
 
-/* =====================================================
-   ASTROTRACKER - style.css (um arquivo só para o site todo)
-   Visual baseado na página da WebDev: azul-escuro,
-   cartões brancos com borda fina e botões pretos.
 
-   ÍNDICE
-     1. Cores e base
-     2. Cabeçalho, menu e rodapé
-     3. Páginas do sistema (descoberta, laudo, leilão, certificado)
-     4. Formulários e botões
-     5. Cartões de peças e status
-     6. Login, cadastro e dashboard
-     7. Página inicial (index)
-     8. Página Sobre
-     9. Telas pequenas (celular)
-   ===================================================== */
-
-
-/* =====================================================
-   1. CORES E BASE
-   ===================================================== */
 
 :root {
     --azul-escuro: #01283d;
@@ -62,9 +42,7 @@ a {
 }
 
 
-/* =====================================================
-   2. CABEÇALHO, MENU E RODAPÉ
-   ===================================================== */
+
 
 header {
     display: flex;
@@ -164,9 +142,7 @@ footer a {
 }
 
 
-/* =====================================================
-   3. PÁGINAS DO SISTEMA
-   ===================================================== */
+
 
 main {
     max-width: 1100px;
@@ -245,9 +221,7 @@ section.certificado dd {
 }
 
 
-/* =====================================================
-   4. FORMULÁRIOS E BOTÕES
-   ===================================================== */
+
 
 label {
     display: block;
@@ -398,9 +372,7 @@ button:disabled {
 }
 
 
-/* =====================================================
-   5. CARTÕES DE PEÇAS E STATUS
-   ===================================================== */
+
 
 .cartao {
     display: flex;
@@ -471,9 +443,7 @@ button:disabled {
 }
 
 
-/* =====================================================
-   6. LOGIN, CADASTRO E DASHBOARD
-   ===================================================== */
+
 
 .container {
     display: flex;
@@ -532,9 +502,7 @@ button:disabled {
 }
 
 
-/* =====================================================
-   7. PÁGINA INICIAL (index)
-   ===================================================== */
+
 
 main > section.destaque {
     padding: 70px 30px;
@@ -573,9 +541,7 @@ section.destaque .botao:hover {
 }
 
 
-/* =====================================================
-   8. PÁGINA SOBRE (baseada no projeto1.html da equipe)
-   ===================================================== */
+
 
 /* Contato rápido */
 
