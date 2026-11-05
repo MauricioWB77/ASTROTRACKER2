@@ -9,7 +9,8 @@ const db = require('./conexao');
 
 const app = express();
 
-const PORT = 3000;
+// Na hospedagem (Render) a porta vem da variável PORT; no seu computador usa 3000
+const PORT = process.env.PORT || 3000;
 
 
 // Permite receber JSON

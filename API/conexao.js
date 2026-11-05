@@ -1,14 +1,17 @@
 const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
+
     host: 'localhost',
     port: 3306,
-    database: 'sistema_login',
+    database: 'astrotracker',
     user: 'root',
     password: 'root',
+
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
+
 });
 
 module.exports = pool;

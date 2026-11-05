@@ -33,51 +33,13 @@
                 class="subtitulo"
             ></p>
 
-            <button
-                onclick="sair()"
-            >
+            <button id="btnSair">
                 Sair
             </button>
 
         </div>
 
     </div>
-
-
-    <script>
-
-        const usuario =
-            JSON.parse(
-                sessionStorage.getItem('usuario')
-            );
-
-
-        if (!usuario) {
-
-            window.location.href =
-                'login.html';
-
-        }
-
-
-        document.getElementById(
-            'boasVindas'
-        ).textContent =
-            `Olá, ${usuario.nome}! Você está logado.`;
-
-
-        function sair() {
-
-            sessionStorage.removeItem(
-                'usuario'
-            );
-
-            window.location.href =
-                'login.html';
-
-        }
-
-    </script>
 
     <script src="js/script.js"></script>
 
