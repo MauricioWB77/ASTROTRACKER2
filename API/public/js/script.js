@@ -29,7 +29,7 @@ function formatarReais(valor) {
 
 function criarRodape() {
 
-    // Se a página já tem um rodapé próprio, não cria outro
+    
     if (document.querySelector('footer')) {
         return;
     }

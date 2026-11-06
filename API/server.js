@@ -9,7 +9,7 @@ const db = require('./conexao');
 
 const app = express();
 
-// Na hospedagem (Render) a porta vem da variável PORT; no seu computador usa 3000
+
 const PORT = process.env.PORT || 3000;
 
 
@@ -29,11 +29,12 @@ app.use(express.static(
 ));
 
 
-// =====================================================
-// CONFIGURAÇÃO DO UPLOAD DE FOTOS
-// =====================================================
 
-// Pasta onde as fotos ficam guardadas (é criada sozinha se não existir)
+
+
+
+
+
 const pastaUploads = path.join(__dirname, 'public', 'uploads');
 fs.mkdirSync(pastaUploads, { recursive: true });
 
@@ -188,7 +189,7 @@ app.post('/api/login', async (req, res) => {
 
 
 // =====================================================
-// CADASTRO (cria sempre um CAÇADOR)
+// CADASTRO 
 // =====================================================
 
 app.post('/api/cadastro', async (req, res) => {
@@ -388,7 +389,7 @@ app.post('/api/descobertas', (req, res) => {
 
 
             // ---------- Grava a descoberta e a foto juntas ----------
-            // (transação: ou grava as duas coisas, ou nenhuma)
+           
 
             conexao = await db.getConnection();
             await conexao.beginTransaction();
@@ -547,7 +548,7 @@ app.get('/api/descobertas', async (req, res) => {
 
 
 // =====================================================
-// LAUDO - FUNÇÃO AUXILIAR
+// LAUDO 
 // =====================================================
 
 // Confere no banco se o usuário é um geólogo ativo
@@ -648,7 +649,7 @@ app.get('/api/laudos/pendentes', async (req, res) => {
 
 // =====================================================
 // LAUDO - HISTÓRICO DO PRÓPRIO GEÓLOGO
-// (mostra só o voto dele, nunca o do outro geólogo)
+
 // =====================================================
 
 app.get('/api/laudos/meus', async (req, res) => {
@@ -945,7 +946,7 @@ app.post('/api/laudos', async (req, res) => {
 
 
 // =====================================================
-// LEILÃO - FUNÇÕES AUXILIARES
+// LEILÃO 
 // =====================================================
 
 // Confere no banco se o usuário é um comprador ativo
